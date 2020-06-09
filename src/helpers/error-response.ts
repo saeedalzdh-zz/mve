@@ -1,5 +1,5 @@
 class ErrorWithProps extends Error {
-    constructor(message: any, props: object = {}) {
+    constructor(message: any, props: any = {}) {
         if (message instanceof Object && 'text' in message) {
             props = message;
             message = message.text;
@@ -21,7 +21,7 @@ class ErrorWithProps extends Error {
     }
 }
 
-const errorResponse = (resCode: object) => (err: any) => {
+const errorResponse = (resCode: any) => (err: any) => {
     throw new ErrorWithProps(err, resCode);
 };
 

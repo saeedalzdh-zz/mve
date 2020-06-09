@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist/*",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint . --quiet --fix",
     "tsc": "tsc",
     "build": "npm run clean && npm run lint && npm run tsc",
     "dev:start": "npm run build && npm start",
