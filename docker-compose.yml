@@ -5,9 +5,15 @@ services:
     ports:
       - "8000:8000"
     volumes:
-        - ./backend:/app
+        - ./backend:/src
     ports:
       - "8000:8000"
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
     network_mode: bridge
-  redis:
-    image: "redis:alpine"
+  db:
+    build: ./db
+    ports:
+      - "13300:3306"
