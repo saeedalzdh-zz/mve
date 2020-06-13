@@ -2,18 +2,20 @@ version: '3'
 services:
   backend:
     build: .
-    ports:
-      - "8000:8000"
-    volumes:
-        - .:/src
-    ports:
-      - "8000:8000"
     depends_on:
      - db
     environment:
      - DATABASE_HOST=db
+     - NODE_ENV=dev
+     - SERVER_PORT=8000
+     - API_VERSION=v1
+    volumes:
+      - .:/app/
+    ports:
+      - "8000:8000"
     network_mode: bridge
   db:
     build: ./database
     ports:
       - "13300:3306"
+    network_mode: bridge

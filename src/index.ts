@@ -4,7 +4,7 @@ import logger from './helpers/logger';
 import { errorHandler } from './middlewares/error-handler';
 import bodyParser from 'body-parser';
 
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || 8000;
 
 const app = express();
 
