@@ -8,10 +8,12 @@
     "lint": "eslint . --quiet --fix",
     "tsc": "tsc",
     "build": "npm run clean && npm run lint && npm run tsc",
-    "dev:start": "npm run build && npm start",
+    "dev:start": "npm run migration && npm run seed && npm run build && npm start",
     "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
     "start": "node .",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "migration": "npx knex migrate:latest",
+    "seed": "npx knex seed:run"
   },
   "author": "hellosaeedalizadeh@gmail.com",
   "license": "MIT",

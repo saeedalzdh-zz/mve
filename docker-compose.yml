@@ -6,7 +6,6 @@ services:
     depends_on: 
       - db
     environment:
-      # DATABASE_HOST: 'db'
       NODE_ENV: 'development'
       SERVER_PORT: 8000
       API_VERSION: 'v1'
@@ -20,13 +19,8 @@ services:
     image: mysql:5
     restart: always
     environment:
-      # SERVICE_3306_NAME: 'mve-db'
-      # SERVICE_EXPOSE_EXTERNAL_ADDRESS: 'true'      
-      # SERVICE_CHECK_TCP: 'true'
       MYSQL_ROOT_PASSWORD: 'supersecret'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'supersecret'
       MYSQL_DATABASE: 'todo'
     ports:
-      - "3306:3306"
+      - "13300:3306"
     network_mode: bridge
